@@ -131,16 +131,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705132214137_v1.cs" />
-    <Compile Include="Migrations\201705132214137_v1.Designer.cs">
-      <DependentUpon>201705132214137_v1.cs</DependentUpon>
+    <Compile Include="Migrations\201705140730145_v1.cs" />
+    <Compile Include="Migrations\201705140730145_v1.Designer.cs">
+      <DependentUpon>201705140730145_v1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\credential.cs" />
+    <Compile Include="Models\Credential.cs" />
+    <Compile Include="Models\CredentialTechnoA.cs" />
+    <Compile Include="Models\CredentialTechnoB.cs" />
     <Compile Include="Models\ModelDb.cs" />
-    <Compile Include="Models\site.cs" />
-    <Compile Include="Models\user.cs" />
-    <Compile Include="Models\userrights.cs" />
+    <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRights.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,8 +159,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705132214137_v1.resx">
-      <DependentUpon>201705132214137_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705140730145_v1.resx">
+      <DependentUpon>201705140730145_v1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -176,7 +178,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59993</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:59993</IISUrl>
+          <IISUrl>http://localhost:59993/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -2,6 +2,7 @@ namespace WebApplication1.Migrations
 {
     using System.Data.Entity.Migrations;
     using TestOdataWS.Models;
+    using WebApplication1.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<WebApplication1.Models.ModelDb>
     {
@@ -23,13 +24,30 @@ namespace WebApplication1.Migrations
                 paris,
                 aix
             );
+            context.SaveChanges();
 
+            User Nicolas = new User { firstName = "Nicolas", lastName = "M", site = bordeaux };
+            User Marthe = new User { firstName = "Marthe", lastName = "M", site = paris };
+            User Kevin = new User { firstName = "Kevin", lastName = "G", site = paris };
+            User Magali = new User { firstName = "Magali", lastName = "M", site = paris };
             context.users.AddOrUpdate(
                 p => p.firstName,
-                new User { firstName = "Nicolas", lastName = "Moreaud", site = bordeaux },
-                new User { firstName = "Kevin", lastName = "Gossent", site = paris },
-                new User { firstName = "Magali", lastName = "Moreaud", site = paris }
+                Nicolas,
+                Kevin,
+                Magali
             );
+            context.SaveChanges();
+
+            context.credentials.AddOrUpdate(
+                ca => ca.graphicalReference,
+                new CredentialTechnoA { graphicalReference = "Visiteur 1", technoAPrivateData = "secretKey1", user = Nicolas },
+                new CredentialTechnoA { graphicalReference = "Visiteur 2", technoAPrivateData = "secretKey2" },
+                new CredentialTechnoB { graphicalReference = "Visiteur 3", technoBIsWireless = false, user = Kevin },
+                new CredentialTechnoB { graphicalReference = "Visiteur 4", technoBIsWireless = false, user = Magali },
+                new CredentialTechnoB { graphicalReference = "Visiteur 5", technoBIsWireless = true }
+            );
+            context.SaveChanges();
+
 
             //  This method will be called after migrating to the latest version.
 

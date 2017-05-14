@@ -13,19 +13,22 @@ namespace WebApplication1.Migrations
                     {
                         id = c.Int(nullable: false, identity: true),
                         graphicalReference = c.String(nullable: false, unicode: false),
-                        userId = c.Int(nullable: false),
+                        userId = c.Int(),
+                        technoAPrivateData = c.String(unicode: false),
+                        technoBIsWireless = c.Boolean(),
+                        Discriminator = c.String(nullable: false, maxLength: 128, unicode: false, storeType: "nvarchar"),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.users", t => t.userId, cascadeDelete: true)
+                .ForeignKey("dbo.users", t => t.userId)
                 .Index(t => t.userId);
             
             CreateTable(
                 "dbo.users",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
                         lastName = c.String(nullable: false, unicode: false),
                         firstName = c.String(unicode: false),
+                        id = c.Int(nullable: false, identity: true),
                         birthDate = c.DateTime(precision: 0),
                         civility = c.String(unicode: false),
                         siteId = c.Int(),

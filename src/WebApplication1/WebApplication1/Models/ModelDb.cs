@@ -13,8 +13,10 @@
         {
         }
 
+        public virtual DbSet<CredentialTechnoA> credentialsTechnoA { get; set; }
+        public virtual DbSet<CredentialTechnoB> credentialsTechnoB { get; set; }
         public virtual DbSet<Credential> credentials { get; set; }
-        public virtual DbSet<UserRights> userrights { get; set; }
+        public virtual DbSet<UserRights> userRights { get; set; }
         public virtual DbSet<Site> sites { get; set; }
         public virtual DbSet<User> users { get; set; }
 

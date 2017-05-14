@@ -18,10 +18,29 @@ namespace TestOdataWS.Models
 
         [Required]
         [StringLength(1073741823)]
+        [Column(Order=1)]
         public string lastName { get; set; }
 
         [StringLength(1073741823)]
+        [Column(Order = 2)]
         public string firstName { get; set; }
+
+        /*private static readonly CompiledExpression<User, string> fullNameExpression
+           = DefaultTranslationOf<User>.Property(e => e.FullName).Is(e => e.FirstName + " " + e.LastName);
+
+        [NotMapped]
+        public string fullName
+        {
+            get { return fullNameExpression.Evaluate(this); }
+        }*/
+
+        // https://daveaglick.com/posts/computed-properties-and-entity-framework
+        [NotMapped]
+        //[Computed]
+        public string fullName
+        {
+            get { return firstName + " " + lastName; }
+        }
 
         public DateTime? birthDate { get; set; }
 

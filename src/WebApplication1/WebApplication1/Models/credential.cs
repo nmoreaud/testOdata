@@ -12,7 +12,7 @@ namespace TestOdataWS.Models
         [StringLength(1073741823)]
         public string graphicalReference { get; set; }
 
-        public int userId { get; set; }
+        public int? userId { get; set; }
 
         public virtual User user{ get; set; }
     }
